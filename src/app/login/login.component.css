@@ -1,0 +1,155 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #ccc;
+    font-family: "Arial";
+    margin: 0;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;  /* Centra el contenido horizontalmente */
+    align-items: center;      /* Centra el contenido verticalmente */
+    position: relative;
+    width: 100%;
+    height: 97vh;            /* Ocupa toda la altura de la pantalla */
+}
+
+.img-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;              /* Coloca la imagen detrás del contenido */
+}
+
+.image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* La imagen cubrirá toda la pantalla */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;         /* Tamaño máximo del contenedor */
+    margin: 0 20px;           /* Espaciado lateral */
+    z-index: 1;               /* Coloca el contenedor por encima de la imagen */
+}
+
+.login-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+    width: 100%;
+    max-width: 400px;          /* Tamaño máximo del formulario */
+}
+
+.form .thumbnail {
+    background: #0b0636;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+    padding: 30px 30px;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.form .thumbnail img {
+    width: 100%;
+}
+
+.form input {
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form button {
+    outline: 0;
+    background: #0b0636;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form a{
+    margin: 15px 0 0;
+    color: #0b0636;
+    font-size: 13px;
+}
+
+.container::before, .container::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.container .info {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.container .info h1 {
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 36px;
+    font-weight: 300;
+    color: #1a1a1a;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container .info span {
+    color: #4d4d4d;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container .info span a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.container .info span i {
+    color: #e20303;
+    text-decoration: none;
+}
+
+.password-container{
+    position: relative;
+    width: 100%;
+}
+
+.password-container input{
+    width: calc(100% - 30px);
+}
+
+.password-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
