@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './acceso-r.component.css'
 })
 export class AccesoRComponent {
+  isSidebarCollapsed = false;
 
+  onSidebarCollapseChanged(isActive: boolean){
+   this.isSidebarCollapsed = isActive;
+  }
 }

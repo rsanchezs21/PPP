@@ -1,5 +1,5 @@
-<app-menu></app-menu>
-<div class="quick-access">
+<app-menu (ActiveChanged)="onSidebarCollapseChanged($event)"></app-menu>
+<div [class.active]="isSidebarCollapsed" class="quick-access">
     <div class="grid-container">
         <div class="grid-item">
             <i class="fa fa-home fa-3x"></i>

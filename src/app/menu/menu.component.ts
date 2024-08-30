@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +10,10 @@ export class MenuComponent {
 
   isActive = false;
 
+  @Output() ActiveChanged = new EventEmitter<boolean>();
+
   toggleSidebar(){
     this.isActive = !this.isActive;
+    this.ActiveChanged.emit(this.isActive)
   }
 }

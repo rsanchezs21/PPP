@@ -1,5 +1,5 @@
-<app-menu></app-menu>
-<div class="usuarios-container">
+<app-menu (ActiveChanged)="onSidebarCollapseChanged($event)"></app-menu>
+<div [class.active]="isSidebarCollapsed" class="usuarios-container">
     <h2>USUARIOS MOYCUP</h2>
     
     <div class="search-section">

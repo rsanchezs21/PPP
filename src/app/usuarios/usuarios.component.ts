@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './usuarios.component.css'
 })
 export class UsuariosComponent {
+   isSidebarCollapsed = false;
 
+   onSidebarCollapseChanged(isActive: boolean){
+    this.isSidebarCollapsed = isActive;
+   }
 }
