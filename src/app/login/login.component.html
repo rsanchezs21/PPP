@@ -15,10 +15,10 @@
                 <div class="thumbnail">
                     <img src="images/logo.png">
                 </div>
-                <form class="login-form" (ngSubmit)="onLogin()">
-                    <input type="email" placeholder="Username" [(ngModel)]="email" name="email" required>
+                <form [formGroup]="formLogin" class="login-form" (ngSubmit)="onLogin()">
+                    <input type="email" placeholder="Username" formControlName="email" name="email" required>
                     <div class="password-container">
-                        <input type="password" placeholder="Password" id="password" [(ngModel)]="password" name="password" required>
+                        <input type="password" placeholder="Password" formControlName="password" id="password" name="password" required>
                         <i class="fa fa-eye" id="togglePassword" (click)="togglePassworVisibility()" ></i>
                     </div>
                     <button type="submit">Login</button>

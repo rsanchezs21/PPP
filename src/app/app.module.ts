@@ -7,10 +7,24 @@ import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import {AngularFireModule} from '@angular/fire/compat'
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccesoRComponent } from './acceso-r/acceso-r.component';
-import { UsuariosComponent } from './usuarios/usuarios.component'; 
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore'; 
 
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCb_YQUzVl_YYwAt7DKmtqNmT6HL3pe71c",
+  authDomain: "moneycup-d4ee8.firebaseapp.com",
+  projectId: "moneycup-d4ee8",
+  storageBucket: "moneycup-d4ee8.appspot.com",
+  messagingSenderId: "475047574738",
+  appId: "1:475047574738:web:0f992030e63bdc506a410b",
+  measurementId: "G-HH452HE2ZV"
+  // Nota: locationId se ha eliminado
+};
 
 @NgModule({
   declarations: [
@@ -23,9 +37,14 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

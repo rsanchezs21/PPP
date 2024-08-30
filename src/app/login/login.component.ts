@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { error } from 'console';
-import { AuthError, UserCredential } from 'firebase/auth';
+import { AuthService } from '../auth.service';
+import { response } from 'express';
 
 
 @Component({
@@ -12,11 +12,14 @@ import { AuthError, UserCredential } from 'firebase/auth';
 })
 export class LoginComponent {
 
-  email: string='';
-  password: string = '';
+  formLogin: FormGroup;
 
-
-  constructor(private router: Router){}
+  constructor(private router: Router,private authService: AuthService){
+    this.formLogin = new FormGroup({
+      email: new FormControl(),
+      password: new FormControl()
+    })
+  }
 
   togglePassworVisibility(){
     const passwordField: any = document.getElementById('password');
@@ -32,8 +35,18 @@ export class LoginComponent {
     }
   }
 
-  onLogin(){
-    this.router.navigate(['/acceso-r']);
+  async onLogin(){
+    const {email, password} = this.formLogin.value;
+
+    const isValidUser = await this.authService.login(email,password);
+
+    if(isValidUser){
+      console.log('login exitoso');
+      this.router.navigate(['acceso-r']);
+    }else{
+      console.error('credenciales incorrectas');
+      alert('correo o contraseña incorrectos');
+    }
   }
   
 }
