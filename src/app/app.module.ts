@@ -12,7 +12,8 @@ import { AccesoRComponent } from './acceso-r/acceso-r.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore'; 
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { AnalyticsComponent } from './analytics/analytics.component'; 
 
 
 const firebaseConfig = {
@@ -32,7 +33,8 @@ const firebaseConfig = {
     LoginComponent,
     MenuComponent,
     AccesoRComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    AnalyticsComponent
   ],
   imports: [
     BrowserModule,
