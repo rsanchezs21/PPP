@@ -1,0 +1,37 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: auto;
+  padding-top: 20px;
+
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 800px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #0b0636;
+  padding: 20px;
+  width: 150px;
+  text-align: center;
+}
+
+.box h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.box p {
+  margin: 10px 0 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}

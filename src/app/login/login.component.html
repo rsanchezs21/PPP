@@ -1,0 +1,30 @@
+<div class="main-container">
+    <div class="img-container">
+        <div class="image-container">
+            <img src="images/fut2.jpg" alt="Imagen de login" class="img">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="login-container">
+            <div class="info">
+                <h1>Inicio de sesión</h1>
+                <span>Bienvenido <i class="fa fa-heart"></i></span>
+            </div>
+            <div class="form">
+                <div class="thumbnail">
+                    <img src="images/logo.png">
+                </div>
+                <form [formGroup]="formLogin" class="login-form" (ngSubmit)="onLogin()">
+                    <input type="email" placeholder="Username" formControlName="email" name="email" required>
+                    <div class="password-container">
+                        <input type="password" placeholder="Password" formControlName="password" id="password" name="password" required>
+                        <i class="fa fa-eye" id="togglePassword" (click)="togglePassworVisibility()" ></i>
+                    </div>
+                    <button type="submit">Login</button>
+                    <a href="#">recuperar password</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+.usuarios-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 250px;
+    width: calc(95% - 250px);
+    height: 90%;
+    position: fixed;
+    transition: left 0.3 ease;
+    z-index: 1000;
+    overflow-y: auto;
+    margin-left: 3%;
+}
+
+.usuarios-container.active{
+    left: 0;
+}
+
+.sidebar.active ~ .usuarios-container{
+    margin-left: 0;
+    width: 95%;
+}
+
+h2 {
+    text-align: center;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.filter-section {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-section {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.search-section input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.search-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table-section {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.data-summary {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.data-summary p {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.action-buttons button {
+    padding: 10px 20px;
+    background-color: #0b0636;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.country-flag {
+    width: 30px;
+    height: 20px;
+    object-fit: cover;
+}

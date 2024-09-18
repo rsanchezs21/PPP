@@ -1,0 +1,57 @@
+<app-menu></app-menu>
+
+<div class="container">
+  <!-- Sección izquierda: listas desplegables -->
+  <div class="left-section">
+    <!-- Lista desplegable de usuarios -->
+    <div class="dropdown">
+      <button class="dropdown-btn">Usuario 1</button>
+      <div class="dropdown-content">
+        <div class="table"></div>
+          <table>
+            <thead>
+              <th>Nombre</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let usuario ofusuarios">
+                <td>{{usuario.name}}</td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropdown-btn">Usuario 2</button>
+      <div class="dropdown-content">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección derecha: gráficos y botones -->
+  <div class="right-section">
+    <div class="user-info">
+      <!-- Gráficos -->
+      <div class="charts">
+        <div class="chart">
+          <h4># Monto a pagar</h4>
+          <!-- Aquí iría el gráfico -->
+          <div class="circle">Gráfico</div>
+        </div>
+
+        <div class="chart">
+          <h4># Monto general</h4>
+          <!-- Aquí iría el gráfico -->
+          <div class="circle">Gráfico</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botones de acciones -->
+    <div class="buttons">
+      <button class="btn">Consultar</button>
+      <button class="btn">Pagar</button>
+    </div>
+  </div>
+

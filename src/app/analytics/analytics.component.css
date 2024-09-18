@@ -1,0 +1,56 @@
+/* dashboard.component.css */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: 10px;
+    left: 250px;
+    width: calc(90% - 230px);
+    height: 90%;
+    position: fixed;
+    transition: left 0.3 ease;
+    z-index: 1000;
+    overflow-y: auto;
+    margin-left: 3%;
+  }
+
+  .dashboard-container.active{
+    left: 0;
+  }
+  
+  .map-container {
+    width: 90%;
+    height: 300px; /* Ajusta el tamaño del mapa según necesites */
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bottom-section {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .chart-container {
+    flex: 2;
+    height: 200px; /* Ajusta el tamaño del gráfico según necesites */
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20px;
+  }
+  
+  button {
+    width: 100px;
+    height: 40px;
+  }
+  
