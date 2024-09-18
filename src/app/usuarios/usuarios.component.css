@@ -98,8 +98,8 @@ th, td {
 
 .action-buttons button {
     padding: 10px 20px;
-    background-color: #0b0636;
-    color: white;
+    background-color: #212121;
+    color: #ffc107;
     border: none;
     border-radius: 5px;
     cursor: pointer;
