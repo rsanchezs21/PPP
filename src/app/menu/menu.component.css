@@ -1,9 +1,44 @@
-.sidebar {
+/* Estilos para la barra de navegación superior */
+.top-nav {
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 40px; /* Ajusta la altura según tus necesidades */
+    background: #212121;
+    color: #ffc107;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinea el contenido al extremo derecho */
+    padding: 0 5px; /* Ajusta el padding para aumentar el espacio desde el borde derecho */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Asegúrate de que la barra de navegación esté por encima del contenido */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-email {
+    font-size: 16px; /* Ajusta el tamaño de fuente según tus necesidades */
+    margin-right: 10px; /* Espacio entre el correo electrónico y la foto del usuario */
+}
+
+.user-photo {
+    width: 40px; /* Ajusta el tamaño según tus necesidades */
+    height: 40px; /* Ajusta el tamaño según tus necesidades */
+    border-radius: 50%;
+}
+
+
+/* Ajusta la barra lateral */
+.sidebar {
+    position: fixed;
+    top: 40px; /* Ajusta el margen superior para que comience debajo de la barra de navegación */
+    left: 0;
     width: 250px;
-    height: 100%;
+    height: calc(100% - 0px); /* Ajusta la altura para que no se superponga con la barra de navegación */
     background: #212121;
     color: #ffc107;
     transition: width 0.3s ease;
@@ -81,15 +116,17 @@
     margin-left: 0; /* Ajusta el margen del ícono si es necesario */
 }
 
+/* Ajusta el contenido para que no se superponga con la barra lateral */
 .content {
     margin-left: 250px;
+    margin-top: 60px; /* Ajusta el margen superior para no ocultar el contenido bajo la barra de navegación */
     padding: 20px;
     transition: margin-left 0.3s ease;
 }
 
 .toggle-btn {
     position: fixed;
-    top: 0px;
+    top: 40px; /* Ajusta el margen superior para que el botón esté al lado de la barra lateral */
     left: 250px; /* Ajuste para que el botón esté al lado de la barra */
     background: #212121;
     color: #fff;
