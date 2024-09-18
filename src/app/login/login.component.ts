@@ -35,6 +35,7 @@ export class LoginComponent {
     }
   }
 
+
   async onLogin(){
     const {email, password} = this.formLogin.value;
 

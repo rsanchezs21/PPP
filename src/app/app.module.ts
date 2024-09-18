@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
-import {AngularFireModule} from '@angular/fire/compat'
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccesoRComponent } from './acceso-r/acceso-r.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -14,6 +12,10 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AnalyticsComponent } from './analytics/analytics.component'; 
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 
 const firebaseConfig = {
@@ -40,7 +42,8 @@ const firebaseConfig = {
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     provideFirebaseApp(() => initializeApp(firebaseConfig)),

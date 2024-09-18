@@ -117,3 +117,42 @@ th, td {
     height: 20px;
     object-fit: cover;
 }
+
+/* usuarios.component.css */
+
+/* Contenedor de la lista de sugerencias */
+.suggestions-container {
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    max-height: 200px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido excede la altura */
+    width:18%; /* Ancho del contenedor igual al del input */
+    z-index: 1000; /* Asegura que la lista esté por encima de otros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombreado para dar profundidad */
+  }
+  
+  /* Elementos individuales de la lista de sugerencias */
+  .suggestion-item {
+    padding: 8px;
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el elemento */
+  }
+  
+  /* Estilo para el elemento de la lista al pasar el cursor sobre él */
+  .suggestion-item:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el cursor */
+  }
+  
+  /* Ajustes para limitar el número de elementos visibles */
+  .suggestions-container::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+  }
+  
+  /* Asegura que no se muestren más de 5 sugerencias */
+  .suggestions-container .suggestion-item:nth-of-type(n+6) {
+    display: none;
+  }
+  

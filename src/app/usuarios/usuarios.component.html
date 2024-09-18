@@ -1,19 +1,45 @@
+<!-- usuarios.component.html -->
 <app-menu (ActiveChanged)="onSidebarCollapseChanged($event)"></app-menu>
 <div [class.active]="isSidebarCollapsed" class="usuarios-container">
     <h2>USUARIOS MOYCUP</h2>
     
     <div class="search-section">
-        <input type="text" placeholder="Buscar por nombre..." [(ngModel)]="nombreFiltro">
-        <input type="text" placeholder="Buscar por país..." [(ngModel)]="paisFiltro">
-        <input type="text" placeholder="Buscar por apodo..." [(ngModel)]="apodoFiltro">
-        <button class="search-btn" (click)="buscar()">Buscar</button>
+        <!-- Input de nombre -->
+        <div class="input-container">
+            <input type="text" placeholder="Buscar por nombre..." [formControl]="nombreFiltro" (focus)="onNombreInput()">
+            <div *ngIf="showNombreList && nombreSuggestions.length > 0" class="suggestions-container">
+                <div *ngFor="let suggestion of nombreSuggestions.slice(0, 5)" (click)="selectSuggestion(suggestion, 'name')" class="suggestion-item">
+                    {{ suggestion.name }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Input de país -->
+        <div class="input-container">
+            <input type="text" placeholder="Buscar por país..." [formControl]="paisFiltro" (focus)="onPaisInput()">
+            <div *ngIf="showPaisList && paisSuggestions.length > 0" class="suggestions-container">
+                <div *ngFor="let suggestion of paisSuggestions.slice(0, 5)" (click)="selectSuggestion(suggestion, 'country')" class="suggestion-item">
+                    {{ suggestion.country }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Input de apodo -->
+        <div class="input-container">
+            <input type="text" placeholder="Buscar por apodo..." [formControl]="apodoFiltro" (focus)="onApodoInput()">
+            <div *ngIf="showApodoList && apodoSuggestions.length > 0" class="suggestions-container">
+                <div *ngFor="let suggestion of apodoSuggestions.slice(0, 5)" (click)="selectSuggestion(suggestion, 'nickname')" class="suggestion-item">
+                    {{ suggestion.nickname }}
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="table-section">
         <table>
             <thead>
                 <tr>
-                    <th>Nombre|</th>
+                    <th>Nombre</th>
                     <th>Apodo</th>
                     <th>Email</th>
                     <th>Telefono</th>
@@ -24,7 +50,7 @@
             </thead>
             <tbody>
                 <!-- Aquí van las filas con los datos de los usuarios -->
-                <tr *ngFor="let usuario of usuarios">
+                <tr *ngFor="let usuario of filteredUsuarios">
                     <td>{{usuario.name}}</td>
                     <td>{{ usuario.nickname }}</td>
                     <td>{{ usuario.email }}</td>
@@ -52,4 +78,3 @@
         <button>Acción 4</button>
     </div>
 </div>
-

@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Firestore, collection, query, where, getDocs, collectionData, QuerySnapshot } from "@angular/fire/firestore";
 import { from, Observable } from "rxjs";
+import { Router } from "@angular/router";
 
 @Injectable({
     providedIn: 'root'  
 })
 export class AuthService {
-    constructor(private firestore: Firestore){}
+    constructor(private firestore: Firestore, private router:Router){}
 
         async login(email: string, password: string): Promise<boolean>{
             const usersCollection = collection(this.firestore, 'User_AD');
@@ -44,5 +45,14 @@ export class AuthService {
             return from(getDocs(q).then(QuerySnapshot => 
                 QuerySnapshot.docs.map(doc => doc.data())
             ));
+        }
+
+        isLoggedIn(): boolean{
+            return !!localStorage.getItem('token')
+        }
+
+        logout(){
+            localStorage.removeItem('token');
+            this.router.navigate(['/login'],{replaceUrl: true});
         }
 }
