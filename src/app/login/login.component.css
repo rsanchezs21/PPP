@@ -145,6 +145,7 @@ body {
 .password-container{
     position: relative;
     width: 100%;
+    background:#f2f2f2 ;
 }
 
 .password-container input{

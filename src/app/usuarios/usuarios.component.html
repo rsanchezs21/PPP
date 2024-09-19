@@ -1,5 +1,6 @@
 <!-- usuarios.component.html -->
 <app-menu (ActiveChanged)="onSidebarCollapseChanged($event)"></app-menu>
+
 <div [class.active]="isSidebarCollapsed" class="usuarios-container">
     <h2>USUARIOS MOYCUP</h2>
     
@@ -7,20 +8,13 @@
         <!-- Input de nombre -->
         <div class="input-container">
             <input type="text" placeholder="Buscar por nombre..." [formControl]="nombreFiltro" (focus)="onNombreInput()">
-            <div *ngIf="showNombreList && nombreSuggestions.length > 0" class="suggestions-container">
-                <div *ngFor="let suggestion of nombreSuggestions.slice(0, 5)" (click)="selectSuggestion(suggestion, 'name')" class="suggestion-item">
-                    {{ suggestion.name }}
-                </div>
-            </div>
+            <div *ngIf="showNombreList && nombreSuggestions.length > 0" class="suggestions-container"></div>
         </div>
 
         <!-- Input de país -->
         <div class="input-container">
             <input type="text" placeholder="Buscar por país..." [formControl]="paisFiltro" (focus)="onPaisInput()">
             <div *ngIf="showPaisList && paisSuggestions.length > 0" class="suggestions-container">
-                <div *ngFor="let suggestion of paisSuggestions.slice(0, 5)" (click)="selectSuggestion(suggestion, 'country')" class="suggestion-item">
-                    {{ suggestion.country }}
-                </div>
             </div>
         </div>
 
@@ -28,9 +22,6 @@
         <div class="input-container">
             <input type="text" placeholder="Buscar por apodo..." [formControl]="apodoFiltro" (focus)="onApodoInput()">
             <div *ngIf="showApodoList && apodoSuggestions.length > 0" class="suggestions-container">
-                <div *ngFor="let suggestion of apodoSuggestions.slice(0, 5)" (click)="selectSuggestion(suggestion, 'nickname')" class="suggestion-item">
-                    {{ suggestion.nickname }}
-                </div>
             </div>
         </div>
     </div>
