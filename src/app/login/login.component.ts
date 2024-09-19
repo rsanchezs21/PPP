@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { response } from 'express';
@@ -16,9 +16,9 @@ export class LoginComponent {
 
   constructor(private router: Router,private authService: AuthService){
     this.formLogin = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl()
-    })
+      email: new FormControl('',[Validators.required, Validators.email]),
+      password: new FormControl('',[Validators.required])
+    });
   }
 
   togglePassworVisibility(){
@@ -36,18 +36,22 @@ export class LoginComponent {
   }
 
 
-  async onLogin(){
-    const {email, password} = this.formLogin.value;
+  async onLogin() {
+    const { email, password } = this.formLogin.value;
 
-    const isValidUser = await this.authService.login(email,password);
+    try {
+      const result = await this.authService.loginAndCheckFirestore(email, password);
 
-    if(isValidUser){
-      console.log('login exitoso');
-      this.router.navigate(['acceso-r']);
-    }else{
-      console.error('credenciales incorrectas');
-      alert('correo o contraseña incorrectos');
+      if (result.authorized) {
+        console.log('Login exitoso y usuario autorizado');
+        this.router.navigate(['acceso-r']); // Redirige si todo está bien
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message); // Muestra un mensaje de error si ocurre algo
+      } else {
+        alert('Ha ocurrido un error desconocido');
+      }
     }
   }
-  
 }

@@ -5,7 +5,7 @@ import { MenuComponent } from './menu/menu.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { AccesoRComponent } from './acceso-r/acceso-r.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
-import { AuthGuard } from './auth.guard';
+
 
 
 const routes: Routes = [

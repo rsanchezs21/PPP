@@ -1,25 +1,16 @@
 import { Injectable } from "@angular/core";
-import { Firestore, collection, query, where, getDocs, collectionData, QuerySnapshot } from "@angular/fire/firestore";
+import { Firestore, collection, query, where, getDocs, collectionData, QuerySnapshot, doc, getDoc } from "@angular/fire/firestore";
 import { from, Observable } from "rxjs";
 import { Router } from "@angular/router";
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { firstValueFrom } from 'rxjs';
+
 
 @Injectable({
     providedIn: 'root'  
 })
 export class AuthService {
-    constructor(private firestore: Firestore, private router:Router){}
-
-        async login(email: string, password: string): Promise<boolean>{
-            const usersCollection = collection(this.firestore, 'User_AD');
-            const q = query(usersCollection, where('CORREO', '==' , email), where('CONTRASENA', '==' ,password));
-
-            const querySnapshot = await getDocs(q);
-            if (!querySnapshot.empty){
-                return true;
-            }else{
-                return false;
-            }
-        }
+    constructor(private firestore: Firestore, private router:Router, private afAuth:AngularFireAuth){}
 
         getUsers(): Observable<any[]>{
             const usersCollection = collection(this.firestore, 'users');
@@ -47,12 +38,31 @@ export class AuthService {
             ));
         }
 
-        isLoggedIn(): boolean{
-            return !!localStorage.getItem('token')
-        }
+    async loginAndCheckFirestore(email: string, password: string): Promise<any> {
+      try {
+        const userCredential = await this.afAuth.signInWithEmailAndPassword(email, password);
+        const user = userCredential.user;
 
-        logout(){
-            localStorage.removeItem('token');
-            this.router.navigate(['/login'],{replaceUrl: true});
+        if (user) {
+          const userId = user.uid;
+
+          // Usa la API modular para obtener el documento
+          const userDocRef = doc(this.firestore, `User_AD/${userId}`);
+          const userSnapshot = await getDoc(userDocRef);
+
+          if (userSnapshot.exists()) {
+            // Usuario autorizado
+            return { authorized: true, user };
+          } else {
+            // Usuario no autorizado
+            throw new Error('Usuario no autorizado');
+          }
         }
+      } catch (error) {
+        console.error('Error en login o verificación:', error);
+        throw error;
+      }
+    }
+
+
 }
