@@ -48,7 +48,7 @@ export class LoginComponent {
       }
     } catch (error) {
       if (error instanceof Error) {
-        alert(error.message); // Muestra un mensaje de error si ocurre algo
+        alert('contraseña o correo incorrecto');
       } else {
         alert('Ha ocurrido un error desconocido');
       }

@@ -63,7 +63,9 @@ h2 {
 }
 
 .table-section {
-    overflow-x: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 table {
@@ -71,7 +73,18 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+thead th{
+    position: sticky;
+    top: 0;
+    background-color: #ffc107;
+    z-index: 10;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+
+td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -118,6 +131,12 @@ th, td {
     object-fit: cover;
 }
 
+table img {
+    border-radius: 50%; /* Hace que las fotos sean redondas */
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
+    border: 1px solid #ddd; /* Un pequeño borde */
+  }
+  
 /* usuarios.component.css */
 
 /* Contenedor de la lista de sugerencias */
