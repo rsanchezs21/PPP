@@ -64,5 +64,22 @@ export class AuthService {
       }
     }
 
+    async getUserPhoto(): Promise<string | null>{
+      const user = await this.afAuth.currentUser;
+      if(user){
+        const userId = user.uid;
+        const userDocRef = doc(this.firestore, `User_AD/${userId}`);
+        const userSnapshot = await getDoc(userDocRef);
+
+        if(userSnapshot.exists()){
+          const userData = userSnapshot.data();
+          return userData['FOTO'] || null;
+        }else{
+          throw new Error('No existe foto');
+        }
+      }
+      return null;
+    }
+
 
 }

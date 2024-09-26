@@ -18,6 +18,7 @@
 .user-info {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 .user-email {
@@ -45,24 +46,43 @@
 }
 
 .sidebar.active {
-    width: 0; /* Ajusta el tamaño según tus necesidades */
+    width: 100px; /* Ajusta el tamaño según tus necesidades */
     overflow: hidden; /* Oculta cualquier contenido que se desborde */
 }
 
 .sidebar.collapsed {
-    width: 80px; /* Ajusta el ancho según tus necesidades */
+    width: 70px; /* Ajusta el ancho según tus necesidades */
 }
 
 .sidebar .profile {
     text-align: center;
     padding: 20px;
-    margin-top: 30%;
+    margin-top: 40%;
 }
 
 .sidebar .profile img {
-    width: 100px;
-    border-radius: 50%;
+    width: 100px;           /* Ajusta el tamaño de la imagen */
+    height: 100px;          /* Asegúrate de que el ancho y la altura sean iguales para hacerla circular */
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+
 }
+
+.user-photo-nav, .profile img {
+    width: 40px;  /* Ajusta el tamaño según lo necesites */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-photo-colap, .profile-collapsed img {
+    width: 35px;  /* Ajusta el tamaño según lo necesites */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
 
 .sidebar .profile-collapsed {
     display: none;
@@ -127,7 +147,7 @@
 .toggle-btn {
     position: fixed;
     top: 40px; /* Ajusta el margen superior para que el botón esté al lado de la barra lateral */
-    left: 250px; /* Ajuste para que el botón esté al lado de la barra */
+    left: 200px; /* Ajuste para que el botón esté al lado de la barra */
     background: #212121;
     color: #fff;
     border: none;
@@ -138,11 +158,11 @@
 }
 
 .sidebar.active ~ .toggle-btn {
-    left: 20px; /* Cuando la barra esté oculta, el botón se moverá a la izquierda */
+    left: 10px; /* Cuando la barra esté oculta, el botón se moverá a la izquierda */
 }
 
 .sidebar.collapsed ~ .toggle-btn {
-    left: 80px; /* Ajusta según el ancho de la barra colapsada */
+    left: 60px; /* Ajusta según el ancho de la barra colapsada */
 }
 
 .sidebar.active ~ .content {
@@ -152,3 +172,4 @@
 .sidebar.collapsed ~ .content {
     margin-left: 80px; /* Ajusta según el ancho de la barra colapsada */
 }
+

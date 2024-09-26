@@ -1,17 +1,17 @@
 <div class="top-nav">
     <div class="user-info">
         <span class="user-email">usuarioAriel</span>
-        <img src="images/logo.png" alt="Profile" class="user-photo">
+        <img [src]="userPhotoUrl" alt="user photo" class="user-photo-nav">
     </div>
 </div>
 
 <div class="sidebar" [class.active]="isActive" [class.collapsed]="isCollapsed">
     <div class="profile">
-        <img src="images/logo.png" alt="Profile">
+        <img [src]="userPhotoUrl" alt="user photo">
         <h3>Usuario</h3>
     </div>
     <div class="profile-collapsed">
-        <img src="images/logo.png" alt="Profile">
+        <img [src]="userPhotoUrl" alt="user photo" class="user-photo-colap">
     </div>
     <ul>
         <li><a routerLink="/acceso-r"><i class="fa fa-home"></i><span>Inicio</span></a></li>
