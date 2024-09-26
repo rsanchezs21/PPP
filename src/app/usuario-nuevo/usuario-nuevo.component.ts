@@ -18,7 +18,7 @@ import { Component } from '@angular/core';
       console.log('Nombre:', this.name);
       console.log('Email:', this.email);
       console.log('Contraseña:', this.password);
-
+      console.log('confirmar contraseña:', this.password);
     }
   }
 

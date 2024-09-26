@@ -7,24 +7,24 @@
     <div class="dropdown">
       <button class="dropdown-btn">Usuario 1</button>
       <div class="dropdown-content">
-        <div class="table"></div>
+        <div class="table">
           <table>
             <thead>
               <th>Nombre</th>
+              <th>Pais</th>
             </thead>
             <tbody>
-              <tr *ngFor="let usuario ofusuarios">
+              <tr *ngFor="let usuario of filteredUsuarios">
                 <td>{{usuario.name}}</td>
+                <td>{{usuario.country}}</td>
             </tbody>
           </table>
         </div>
       </div>
     </div>
-
     <div class="dropdown">
       <button class="dropdown-btn">Usuario 2</button>
       <div class="dropdown-content">
-
       </div>
     </div>
   </div>
@@ -35,13 +35,13 @@
       <!-- Gráficos -->
       <div class="charts">
         <div class="chart">
-          <h4># Monto a pagar</h4>
+          <h4>Monto a pagar</h4>
           <!-- Aquí iría el gráfico -->
           <div class="circle">Gráfico</div>
         </div>
 
         <div class="chart">
-          <h4># Monto general</h4>
+          <h4>Monto general</h4>
           <!-- Aquí iría el gráfico -->
           <div class="circle">Gráfico</div>
         </div>
@@ -54,4 +54,3 @@
       <button class="btn">Pagar</button>
     </div>
   </div>
-

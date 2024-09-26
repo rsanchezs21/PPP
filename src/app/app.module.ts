@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -16,7 +15,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { FinanzasComponent } from './finanzas/finanzas.component';
 import { UsuarioNuevoComponent } from './usuario-nuevo/usuario-nuevo.component';
-import { BalanceComponent } from './balance/balance.component'; 
+import { BalanceComponent } from './balance/balance.component';
+
 
 
 const firebaseConfig = {
@@ -40,7 +40,7 @@ const firebaseConfig = {
     AnalyticsComponent,
     FinanzasComponent,
     UsuarioNuevoComponent,
-    BalanceComponent
+    BalanceComponent,
   ],
   imports: [
     BrowserModule,

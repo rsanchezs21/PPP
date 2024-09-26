@@ -9,7 +9,7 @@
 
 /* Contenedor del formulario centrado y responsive */
 .form-container {
-  background-color: white;
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -36,7 +36,8 @@ label {
 /* Estilos para inputs */
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"]
+ {
   width: 100%;
   padding: 12px;
   margin-bottom: 20px;

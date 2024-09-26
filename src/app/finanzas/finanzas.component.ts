@@ -8,19 +8,21 @@ import { Observable } from 'rxjs';
   styleUrl: './finanzas.component.css'
 })
 export class FinanzasComponent {
-[x: string]: any;
-  nombreFiltro: string = '';
-  paisFiltro: string = '';
-  apodoFiltro: string = '';
+  usuarios: any[] = [];
+  filteredUsuarios: any[] = [];
 
   constructor (private authService: AuthService){}
 
+  isSidebarCollapsed = false;
 
+  onSidebarCollapseChanged(isActive: boolean){
+    this.isSidebarCollapsed = isActive;
+   }
 
-  ngOnInit(): void{
-    this.authService.getUsers().subscribe(data =>{
-      this['usuarios'] = data;
+   ngOnInit(): void {
+    this.authService.getUsers().subscribe(data => {
+      this.usuarios = data;
+      this.filteredUsuarios = data;
+    });
 
-
-})
-}}
+  }}
