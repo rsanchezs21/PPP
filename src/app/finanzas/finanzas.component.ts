@@ -3,6 +3,7 @@ import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
 
 @Component({
+
   selector: 'app-finanzas',
   templateUrl: './finanzas.component.html',
   styleUrl: './finanzas.component.css'

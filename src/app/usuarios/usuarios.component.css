@@ -3,21 +3,21 @@
     flex-direction: column;
     gap: 10px;
     left: 250px;
-    width: calc(95% - 250px);
-    height: 90%;
+    width: calc(90% - 250px);
+    height: 80%;
     position: fixed;
     transition: left 0.3 ease;
     z-index: 1000;
     overflow-y: auto;
-    margin-left: 3%;
+    margin-left: 5%;
 }
 
 .usuarios-container.active{
-    left: 0;
+    left: 10%;
 }
 
 .sidebar.active ~ .usuarios-container{
-    margin-left: 0;
+    margin-left: 200px;
     width: 95%;
 }
 
@@ -63,7 +63,9 @@ h2 {
 }
 
 .table-section {
-    overflow-x: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 table {
@@ -71,7 +73,18 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+thead th{
+    position: sticky;
+    top: 0;
+    background-color: #ffc107;
+    z-index: 10;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+
+td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -98,8 +111,8 @@ th, td {
 
 .action-buttons button {
     padding: 10px 20px;
-    background-color: #0b0636;
-    color: white;
+    background-color: #212121;
+    color: #ffc107;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -117,3 +130,47 @@ th, td {
     height: 20px;
     object-fit: cover;
 }
+
+table img {
+    border-radius: 50%; /* Hace que las fotos sean redondas */
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor */
+    border: 1px solid #ddd; /* Un pequeño borde */
+  }
+
+/* usuarios.component.css */
+
+/* Contenedor de la lista de sugerencias */
+.suggestions-container {
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    max-height: 200px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si el contenido excede la altura */
+    width:18%; /* Ancho del contenedor igual al del input */
+    z-index: 1000; /* Asegura que la lista esté por encima de otros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombreado para dar profundidad */
+  }
+
+  /* Elementos individuales de la lista de sugerencias */
+  .suggestion-item {
+    padding: 8px;
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el elemento */
+  }
+
+  /* Estilo para el elemento de la lista al pasar el cursor sobre él */
+  .suggestion-item:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el cursor */
+  }
+
+  /* Ajustes para limitar el número de elementos visibles */
+  .suggestions-container::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+  }
+
+  /* Asegura que no se muestren más de 5 sugerencias */
+  .suggestions-container .suggestion-item:nth-of-type(n+6) {
+    display: none;
+  }

@@ -9,6 +9,7 @@ import { FinanzasComponent } from './finanzas/finanzas.component';
 import { UsuarioNuevoComponent } from './usuario-nuevo/usuario-nuevo.component';
 import { BalanceComponent } from './balance/balance.component';
 
+
 const routes: Routes = [
     {path: '',redirectTo:'/login', pathMatch: 'full'},
     {path: 'login', component: LoginComponent},
@@ -25,4 +26,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
+
