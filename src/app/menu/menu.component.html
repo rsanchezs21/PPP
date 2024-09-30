@@ -1,6 +1,6 @@
 <div class="top-nav">
     <div class="user-info">
-        <span class="user-email">usuarioAriel</span>
+        <span class="user-email">{{userEmail}}</span>
         <img [src]="userPhotoUrl" alt="user photo" class="user-photo-nav">
     </div>
 </div>
@@ -8,7 +8,7 @@
 <div class="sidebar" [class.active]="isActive" [class.collapsed]="isCollapsed">
     <div class="profile">
         <img [src]="userPhotoUrl" alt="user photo">
-        <h3>Usuario</h3>
+        <h3>{{userName}}</h3>
     </div>
     <div class="profile-collapsed">
         <img [src]="userPhotoUrl" alt="user photo" class="user-photo-colap">
