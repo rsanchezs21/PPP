@@ -42,7 +42,7 @@
             </thead>
             <tbody>
                 <!-- Aquí van las filas con los datos de los usuarios -->
-                <tr *ngFor="let usuario of filteredUsuarios">
+                <tr *ngFor="let usuario of filteredUsuarios" class="usuario-row">
                     <td>
                         <img *ngIf="usuario.imguser" [src]="usuario.imguser" alt="Foto de {{usuario.name}}" width="50" height="50">
                     </td>

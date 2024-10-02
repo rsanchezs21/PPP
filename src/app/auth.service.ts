@@ -1,10 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Firestore, collection, query, where, getDocs, collectionData, QuerySnapshot, doc, getDoc } from "@angular/fire/firestore";
-import { from, Observable } from "rxjs";
+import { from, Observable, of } from "rxjs";
 import { Router } from "@angular/router";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { firstValueFrom } from 'rxjs';
-
+import { map, switchMap } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -64,22 +63,29 @@ export class AuthService {
       }
     }
 
-    async getUserPhoto(): Promise<string | null>{
-      const user = await this.afAuth.currentUser;
-      if(user){
-        const userId = user.uid;
-        const userDocRef = doc(this.firestore, `User_AD/${userId}`);
-        const userSnapshot = await getDoc(userDocRef);
-
-        if(userSnapshot.exists()){
-          const userData = userSnapshot.data();
-          return userData['FOTO'] || null;
-        }else{
-          throw new Error('No existe foto');
+    // Observable para obtener el estado del usuario autenticado
+  getUserData(): Observable<{ displayName: string | null, email: string | null, photoURL: string | null } | null> {
+    return this.afAuth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          const userId = user.uid;
+          const userDocRef = doc(this.firestore, `User_AD/${userId}`);
+          return getDoc(userDocRef).then(userSnapshot => {
+            const userData = userSnapshot.exists() ? userSnapshot.data() : {};
+            const displayName = user.displayName || userData['NOMBRE'] || 'Usuario';
+            const photoURL = user.photoURL || userData['FOTO'] || null;
+            return {
+              displayName,
+              email: user.email,
+              photoURL
+            };
+          });
+        } else {
+          return of(null); // No hay usuario autenticado
         }
-      }
-      return null;
-    }
+      })
+    );
+  }
 
 
 }

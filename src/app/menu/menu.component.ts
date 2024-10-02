@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { user } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-menu',
@@ -10,16 +11,24 @@ export class MenuComponent {
   isActive = false;
   isCollapsed = false; // Nueva variable para controlar el estado colapsado
   userPhotoUrl: string | null = null;
+  userName: string | null = '';
+  userEmail: string | null = '';
 
   constructor(private authService:AuthService){}
 
   @Output() ActiveChanged = new EventEmitter<boolean>();
 
-  ngOnInit(){
-    this.authService.getUserPhoto().then(photoUrl =>{
-      this.userPhotoUrl = photoUrl;
-    }).catch(error => {
-      console.error('error en la carga de la foto', error);
+  ngOnInit(): void{
+    this.authService.getUserData().subscribe(userData =>{
+      if(userData){
+        this.userName = userData.displayName;
+        this.userEmail = userData.email;
+        this.userPhotoUrl = userData.photoURL;
+      }else{
+        this.userName = null;
+        this.userEmail = null;
+        this.userPhotoUrl = null;
+      }
     });
   }
 
