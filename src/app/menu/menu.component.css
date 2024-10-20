@@ -1,175 +1,174 @@
 /* Estilos para la barra de navegación superior */
 .top-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 40px; /* Ajusta la altura según tus necesidades */
-    background: #212121;
-    color: #ffc107;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Alinea el contenido al extremo derecho */
-    padding: 0 5px; /* Ajusta el padding para aumentar el espacio desde el borde derecho */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* Asegúrate de que la barra de navegación esté por encima del contenido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px; /* Ajusta la altura según tus necesidades */
+  background: #212121;
+  color: #ffc107;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Alinea el contenido al extremo derecho */
+  padding: 0 5px; /* Ajusta el padding para aumentar el espacio desde el borde derecho */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Asegúrate de que la barra de navegación esté por encima del contenido */
 }
 
 .user-info {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
 
 .user-email {
-    font-size: 16px; /* Ajusta el tamaño de fuente según tus necesidades */
-    margin-right: 10px; /* Espacio entre el correo electrónico y la foto del usuario */
+  font-size: 16px; /* Ajusta el tamaño de fuente según tus necesidades */
+  margin-right: 10px; /* Espacio entre el correo electrónico y la foto del usuario */
 }
 
 .user-photo {
-    width: 40px; /* Ajusta el tamaño según tus necesidades */
-    height: 40px; /* Ajusta el tamaño según tus necesidades */
-    border-radius: 50%;
+  width: 40px; /* Ajusta el tamaño según tus necesidades */
+  height: 40px; /* Ajusta el tamaño según tus necesidades */
+  border-radius: 50%;
 }
 
 
 /* Ajusta la barra lateral */
 .sidebar {
-    position: fixed;
-    top: 40px; /* Ajusta el margen superior para que comience debajo de la barra de navegación */
-    left: 0;
-    width: 250px;
-    height: calc(100% - 0px); /* Ajusta la altura para que no se superponga con la barra de navegación */
-    background: #212121;
-    color: #ffc107;
-    transition: width 0.3s ease;
+  position: fixed;
+  top: 40px; /* Ajusta el margen superior para que comience debajo de la barra de navegación */
+  left: 0;
+  width: 250px;
+  height: calc(100% - 0px); /* Ajusta la altura para que no se superponga con la barra de navegación */
+  background: #212121;
+  color: #ffc107;
+  transition: width 0.3s ease;
 }
 
 .sidebar.active {
-    width: 100px; /* Ajusta el tamaño según tus necesidades */
-    overflow: hidden; /* Oculta cualquier contenido que se desborde */
+  width: 100px; /* Ajusta el tamaño según tus necesidades */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde */
 }
 
 .sidebar.collapsed {
-    width: 70px; /* Ajusta el ancho según tus necesidades */
+  width: 70px; /* Ajusta el ancho según tus necesidades */
 }
 
 .sidebar .profile {
-    text-align: center;
-    padding: 20px;
-    margin-top: 40%;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40%;
 }
 
 .sidebar .profile img {
-    width: 100px;           /* Ajusta el tamaño de la imagen */
-    height: 100px;          /* Asegúrate de que el ancho y la altura sean iguales para hacerla circular */
-    margin: 0 auto;
-    display: block;
-    object-fit: cover;
+  width: 100px;           /* Ajusta el tamaño de la imagen */
+  height: 100px;          /* Asegúrate de que el ancho y la altura sean iguales para hacerla circular */
+  margin: 0 auto;
+  display: block;
+  object-fit: cover;
 
 }
 
 .user-photo-nav, .profile img {
-    width: 40px;  /* Ajusta el tamaño según lo necesites */
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 40px;  /* Ajusta el tamaño según lo necesites */
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .user-photo-colap, .profile-collapsed img {
-    width: 35px;  /* Ajusta el tamaño según lo necesites */
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
+  width: 35px;  /* Ajusta el tamaño según lo necesites */
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
 
 .sidebar .profile-collapsed {
-    display: none;
+  display: none;
 }
 
 .sidebar.collapsed .profile {
-    display: none; /* Oculta el perfil completo en la vista colapsada */
+  display: none; /* Oculta el perfil completo en la vista colapsada */
 }
 
 .sidebar.collapsed .profile-collapsed {
-    display: block;
-    text-align: center;
-    padding: 10px;
+  display: block;
+  text-align: center;
+  padding: 10px;
 }
 
 .sidebar.collapsed .profile-collapsed img {
-    width: 50px; /* Ajusta el tamaño del perfil colapsado */
-    border-radius: 50%;
+  width: 50px; /* Ajusta el tamaño del perfil colapsado */
+  border-radius: 50%;
 }
 
 .sidebar ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .sidebar ul li {
-    padding: 15px 20px;
+  padding: 15px 20px;
 }
 
 .sidebar ul li a {
-    color: #ffc107;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+  color: #ffc107;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .sidebar ul li a i {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .sidebar ul li a span {
-    display: inline-block;
-    margin-left: 10px;
+  display: inline-block;
+  margin-left: 10px;
 }
 
 .sidebar.collapsed ul li a span {
-    display: none; /* Oculta el texto del ícono en la vista colapsada */
+  display: none; /* Oculta el texto del ícono en la vista colapsada */
 }
 
 .sidebar.collapsed ul li a i {
-    margin-left: 0; /* Ajusta el margen del ícono si es necesario */
+  margin-left: 0; /* Ajusta el margen del ícono si es necesario */
 }
 
 /* Ajusta el contenido para que no se superponga con la barra lateral */
 .content {
-    margin-left: 250px;
-    margin-top: 60px; /* Ajusta el margen superior para no ocultar el contenido bajo la barra de navegación */
-    padding: 20px;
-    transition: margin-left 0.3s ease;
+  margin-left: 250px;
+  margin-top: 60px; /* Ajusta el margen superior para no ocultar el contenido bajo la barra de navegación */
+  padding: 20px;
+  transition: margin-left 0.3s ease;
 }
 
 .toggle-btn {
-    position: fixed;
-    top: 40px; /* Ajusta el margen superior para que el botón esté al lado de la barra lateral */
-    left: 200px; /* Ajuste para que el botón esté al lado de la barra */
-    background: #212121;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-    transition: left 0.3s ease; /* Para que el botón se mueva con la barra */
+  position: fixed;
+  top: 40px; /* Ajusta el margen superior para que el botón esté al lado de la barra lateral */
+  left: 200px; /* Ajuste para que el botón esté al lado de la barra */
+  background: #212121;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: left 0.3s ease; /* Para que el botón se mueva con la barra */
 }
 
 .sidebar.active ~ .toggle-btn {
-    left: 10px; /* Cuando la barra esté oculta, el botón se moverá a la izquierda */
+  left: 10px; /* Cuando la barra esté oculta, el botón se moverá a la izquierda */
 }
 
 .sidebar.collapsed ~ .toggle-btn {
-    left: 60px; /* Ajusta según el ancho de la barra colapsada */
+  left: 60px; /* Ajusta según el ancho de la barra colapsada */
 }
 
 .sidebar.active ~ .content {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .sidebar.collapsed ~ .content {
-    margin-left: 80px; /* Ajusta según el ancho de la barra colapsada */
+  margin-left: 80px; /* Ajusta según el ancho de la barra colapsada */
 }
-

@@ -4,11 +4,14 @@ import { from, Observable, of } from "rxjs";
 import { Router } from "@angular/router";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { map, switchMap } from "rxjs";
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
+  ref: any;
+  upload: any;
     constructor(private firestore: Firestore, private router:Router, private afAuth:AngularFireAuth){}
 
         getUsers(): Observable<any[]>{
